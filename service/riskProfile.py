@@ -53,12 +53,12 @@ class RiskProfile:
         self.score = rules.rule_risk_questions(user=self.user)
         # Apply other rules
         self.score = rules.rule_vehicle_last_five_years(user=self.user, score=self.score)
-        self.score = rules.rule_user_is_married(user=self.user, score=self.score)
+        self.score = rules.rule_user_is_married(user=self.user, score=self.score) #
         self.score = rules.rule_user_has_dependents(user=self.user, score=self.score)
         self.score = rules.rule_user_s_house_is_mortgaged(user=self.user, score=self.score)
-        self.score = rules.rule_if_income_is_above_two_hundred_k(user=self.user, score=self.score)
+        self.score = rules.rule_if_income_is_above_two_hundred_k(user=self.user, score=self.score) #
         self.score = rules.rule_age_risk(user=self.user, score=self.score)
-        self.score = rules.rule_user_over_sixty_years(user=self.user, score=self.score)
+        self.score = rules.rule_user_over_sixty_years(user=self.user, score=self.score) #
         self.score = rules.rule_user_does_not_have_income_vehicle_or_house(user=self.user, score=self.score)
 
         final_score = {}

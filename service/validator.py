@@ -73,8 +73,7 @@ def validate_house(house):
         and it is "mortgaged" or "owned" returns True
         Else, raise ValueError
    """
-    if len(house) > 1:
-        raise ValueError('Invalid number of house attributes')
+    print(house)
     if house['ownership_status'] != 'owned' and house['ownership_status'] != 'mortgaged':
         raise ValueError('Invalid house ownership status')
     return True
@@ -119,8 +118,6 @@ def validate_vehicle(vehicle):
         and it is a positive integer returns True
         Else, raise ValueError
     """
-    if len(vehicle) > 1:
-        raise ValueError('Invalid number of vehicle attributes')
     if not isinstance(vehicle['year'], int):
         raise ValueError('Invalid vehicle year')
     elif vehicle['year'] < 0:

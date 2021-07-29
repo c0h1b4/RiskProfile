@@ -31,21 +31,40 @@ class TestRiskProfile(unittest.TestCase):
         risk_profile = RiskProfile(user)
         self.assertEqual(output, risk_profile.get_risk_profile())
 
-    def test_risk_profile_with_custom_data(self):
+    def test_risk_profile_with_custom_data1(self):
         user = {
             "age": 51,
             "dependents": 2,
             "house": {"ownership_status": "mortgaged"},
             "income": 120000,
-            "marital_status": "single",
+            "marital_status": "married",
             "risk_questions": [0, 0, 1],
             "vehicle": {"year": 2015}
         }
         output = {
             "auto": "regular",
-            "disability": "responsible",
+            "disability": "regular",
             "home": "regular",
-            "life": "regular"
+            "life": "responsible"
+        }
+        risk_profile = RiskProfile(user)
+        self.assertEqual(output, risk_profile.get_risk_profile())
+
+    def test_risk_profile_with_custom_data2(self):
+        user = {
+            "age": 61,
+            "dependents": 2,
+            "house": {"ownership_status": "mortgaged"},
+            "income": 220000,
+            "marital_status": "married",
+            "risk_questions": [0, 0, 1],
+            "vehicle": {"year": 2015}
+        }
+        output = {
+            "auto": "economic",
+            "disability": "ineligible",
+            "home": "regular",
+            "life": "ineligible"
         }
         risk_profile = RiskProfile(user)
         self.assertEqual(output, risk_profile.get_risk_profile())
