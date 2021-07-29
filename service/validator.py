@@ -73,7 +73,6 @@ def validate_house(house):
         and it is "mortgaged" or "owned" returns True
         Else, raise ValueError
    """
-    print(house)
     if house['ownership_status'] != 'owned' and house['ownership_status'] != 'mortgaged':
         raise ValueError('Invalid house ownership status')
     return True
