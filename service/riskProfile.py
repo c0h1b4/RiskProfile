@@ -1,4 +1,3 @@
-import datetime
 from models.user_model import UserModel
 from models.risk_model import RiskModel
 import validator as validator
