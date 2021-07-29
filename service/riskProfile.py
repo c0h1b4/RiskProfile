@@ -28,12 +28,7 @@ class RiskProfile:
             validator.validate_vehicle(vehicle=self.user['vehicle'])
 
         # initialize score
-        self.score = {
-            "auto_score": 0,
-            "disability_score": 0,
-            "home_score": 0,
-            "life_score": 0
-        }
+        self.score = {}
 
         # calculate the risk profile
         self.calculate = self.risk_profile()
@@ -54,7 +49,9 @@ class RiskProfile:
         Calculate the risk profile based on payload
         and business rules
         """
-        self.score = rules.rule_risk_questions(user=self.user, score=self.score)
+        # Calculate base score
+        self.score = rules.rule_risk_questions(user=self.user)
+        # Apply other rules
         self.score = rules.rule_vehicle_last_five_years(user=self.user, score=self.score)
         self.score = rules.rule_user_is_married(user=self.user, score=self.score)
         self.score = rules.rule_user_has_dependents(user=self.user, score=self.score)
@@ -64,15 +61,8 @@ class RiskProfile:
         self.score = rules.rule_user_over_sixty_years(user=self.user, score=self.score)
         self.score = rules.rule_user_does_not_have_income_vehicle_or_house(user=self.user, score=self.score)
 
-        # process final score
-        auto_score = utils.process(self.score["auto_score"])
-        disability_score = utils.process(self.score["disability_score"])
-        home_score = utils.process(self.score["home_score"])
-        life_score = utils.process(self.score["life_score"])
+        final_score = {}
+        for key, value in self.score.items():
+            final_score[key.replace("_score","")] = utils.process(value)
 
-        return {
-            'auto': auto_score,
-            'disability': disability_score,
-            'home': home_score,
-            'life': life_score
-        }
+        return final_score

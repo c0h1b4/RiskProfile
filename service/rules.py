@@ -1,7 +1,7 @@
 import datetime
 
 
-def rule_risk_questions(user, score):
+def rule_risk_questions(user):
     """
     It calculates the base score by summing the answers from the risk questions,
     resulting in a number ranging from 0 to 3. 
@@ -9,15 +9,17 @@ def rule_risk_questions(user, score):
 
     Args:
         user (dictionary): A dictionary containing the user's answers to the risk questions.
-        score (dictionary): A dictionary containing the base score for each line of insurance.
     Returns:
-        A dictionary containing the risk score for each line of insurance.
+        A dictionary containing the base risk score for each line of insurance.
     """
-    # ensure to reset the score
-    score["auto_score"] = 0
-    score["disability_score"] = 0
-    score["home_score"] = 0
-    score["life_score"] = 0
+    # initializing the score
+    score = {
+        "auto_score": 0,
+        "disability_score": 0,
+        "home_score": 0,
+        "life_score": 0
+    }
+
     # calculates the base score by summing the answers from the risk questions
     for risk in user['risk_questions']:
         if risk == 1:
