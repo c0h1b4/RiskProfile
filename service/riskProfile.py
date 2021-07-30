@@ -27,7 +27,7 @@ class RiskProfile:
             validator.validate_vehicle(vehicle=self.user['vehicle'])
 
         # initialize score
-        self.score = {}
+        self.score = self.initialize_score()
 
         # calculate the risk profile
         self.calculate = self.risk_profile()
@@ -49,7 +49,7 @@ class RiskProfile:
         and business rules
         """
         # Calculate base score
-        self.score = rules.rule_risk_questions(user=self.user)
+        self.score = rules.rule_risk_questions(user=self.user, score=self.score)
         # Apply other rules
         self.score = rules.rule_vehicle_last_five_years(user=self.user, score=self.score)
         self.score = rules.rule_user_is_married(user=self.user, score=self.score) #
@@ -65,3 +65,17 @@ class RiskProfile:
             final_score[key.replace("_score","")] = utils.process(value)
 
         return final_score
+
+    def initialize_score(self):
+        """
+        Initializes the score variable
+        Returns:
+            score: dict
+        """
+        score = {
+            "auto_score": 0,
+            "disability_score": 0,
+            "home_score": 0,
+            "life_score": 0
+        }
+        return score

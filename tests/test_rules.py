@@ -17,7 +17,7 @@ class TestRules(unittest.TestCase):
             s = sum(risk_questions)
             expected_score = {"auto_score": s, "disability_score": s, "home_score": s, "life_score": s}
             user = {"risk_questions": risk_questions}
-            self.assertEqual(expected_score, rules.rule_risk_questions(user=user))
+            self.assertEqual(expected_score, rules.rule_risk_questions(user=user, score=deepcopy(self.initial_score)))
 
     def test_rule_user_does_not_have_income_vehicle_or_house(self):
         # 1. If the user does not have income, vehicles or houses, she is ineligible for
