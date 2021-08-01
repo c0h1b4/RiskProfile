@@ -66,7 +66,8 @@ class RiskProfile:
 
         return final_score
 
-    def initialize_score(self):
+    @staticmethod
+    def initialize_score():
         """
         Initializes the score variable
         Returns:
