@@ -5,6 +5,12 @@ from rules import Rules
 
 
 class RiskProfile:
+    """
+    This is the class to receive a user's risk profile and calculate the risk score.
+    :param user: User object (user's risk profile)
+    exposed properties:
+        calculatedRiskProfile: Risk object (risk score)
+    """
 
     def __init__(self, user: UserModel) -> None:
         # get user's risk profile
@@ -30,4 +36,8 @@ class RiskProfile:
 
     @property
     def calculatedRiskProfile(self) -> RiskModel:
+        """
+        provides the calculated risk score from the provided user's risk profile
+        :return: RiskModel object
+        """
         return self._output
