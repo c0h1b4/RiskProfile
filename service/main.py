@@ -21,7 +21,7 @@ def index():
 @app.post('/api/risk/', response_model=RiskModel)
 async def calculate_user_risk(user: UserModel):
     risk_profile = RiskProfile(user)
-    return risk_profile.get_risk_profile()
+    return risk_profile.calculatedRiskProfile
 
 
 if __name__ == "__main__":
