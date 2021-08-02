@@ -6,7 +6,7 @@ from rules import Rules
 
 class RiskProfile:
     """
-    Main class for risk profile calculation
+    This is the class to receive a user's risk profile and calculate the risk score.
     ...
     Attributes
     ----------
@@ -43,4 +43,8 @@ class RiskProfile:
 
     @property
     def calculatedRiskProfile(self) -> RiskModel:
+        """
+        provides the calculated risk score from the provided user's risk profile
+        :return: RiskModel object
+        """
         return self._output
