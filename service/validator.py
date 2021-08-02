@@ -16,27 +16,32 @@ class Validator:
     -------
     validate_all()
         Validate all the risk profile attributes.
+
     validate_required_attributes_in_user()
         Check if all required attributes are there
         [Age, Dependents, Income, Marital Status and Risk answers]
         Returns:
             If all required attributes are present returns True
-            Else, raise ValueError    
+            Else, raise ValueError 
+
     validate_risk_questions()
         Validate the risk anwers (an array with 3 booleans).
         Returns:
             If risk_questions has exactly 3 booleans, returns True
             else, raise ValueError
+
     validate_age()
         Validate the age (an integer equal or greater than 0)
         Returns:
             If age is equal or greater than 0, returns True
             Else, raise ValueError
+
     validate_dependents()
         Validate the number of dependents (an integer equal or greater than 0)
         Returns:
             If dependents is equal or greater than 0, returns True
             Else, raise ValueError
+
     validate_house()
         Users can have 0 or 1 house. 
         When they do, it has just one attribute: ownership_status, 
@@ -45,16 +50,19 @@ class Validator:
             If house has exactly one attribute, "ownership_status", 
             and it is "mortgaged" or "owned" returns True
             Else, raise ValueError
+
     validate_income()
         Validate the income (an integer equal or greater than 0)
         Returns:
             If income is equal or greater than 0, returns True
             Else, raise ValueError
+
     validate_marital_status()
         Validate the marital status ("single" or "married")
         Returns:
             If marital_status is "single" or "married", returns True
             Else, raise ValueError
+            
     validate_vehicle()
         Users can have 0 or 1 vehicle. When they do, it has just one attribute: 
         a positive integer corresponding to the year it was manufactured.
