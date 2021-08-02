@@ -25,8 +25,10 @@ class Rules:
 
     Properties
     ----------
-    score (dictionary) : A dictionary containing the risk score for each line of insurance.
-    processedScore (RiskModel): A RiskModel object containing the calculated risk score for each line of insurance.
+    score : dictionary
+        A dictionary containing the risk score for each line of insurance.
+    processedScore : RiskModel
+        A RiskModel object containing the calculated risk score for each line of insurance.
     """
 
     def __init__(self, user: UserModel, score) -> None:
