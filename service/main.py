@@ -14,12 +14,20 @@ app = fastapi.FastAPI(
 
 @app.get("/")
 def index():
+    """
+    Index page to test the API services
+    """
     return {"message": "Hello World",
             "documentation": "Call /docs to see all the documentation"}
 
 
 @app.post('/api/risk/', response_model=RiskModel)
 async def calculate_user_risk(user: UserModel):
+    """
+    This is the main API endpoint for calculating the user's risk profile.
+    :param user: UserModel object
+    :return: RiskModel object
+    """
     risk_profile = RiskProfile(user)
     return risk_profile.calculatedRiskProfile
 
