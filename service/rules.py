@@ -1,10 +1,33 @@
 import datetime
-from typing import Dict, List
+from typing import Dict
 import utils as utils
 from models.user_model import UserModel
 from models.risk_model import RiskModel
 
+
 class Rules:
+    """
+    A class to apply the rules to the user's profile
+
+    ...
+
+    Attributes
+    ----------
+    user : UserModel
+        A dictionary containing the user's answers to the risk questions.
+    score : dictionary
+        A dictionary containing the initial score for each line of insurance.
+
+    Methods
+    -------
+    apply_all_rules()
+        Calculate the risk profile based on payload and business rules
+
+    Properties
+    ----------
+    score (dictionary) : A dictionary containing the risk score for each line of insurance.
+    processedScore (RiskModel): A RiskModel object containing the calculated risk score for each line of insurance.
+    """
 
     def __init__(self, user: UserModel, score) -> None:
         self._user = user

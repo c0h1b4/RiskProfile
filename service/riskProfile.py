@@ -5,6 +5,19 @@ from rules import Rules
 
 
 class RiskProfile:
+    """
+    Main class for risk profile calculation
+    ...
+    Attributes
+    ----------
+    user : UserModel
+        user's risk profile
+
+    Properties
+    ----------
+    calculatedRiskProfile : RiskModel
+        risk profile of the provided user
+    """
 
     def __init__(self, user: UserModel) -> None:
         # get user's risk profile
