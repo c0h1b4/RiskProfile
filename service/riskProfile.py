@@ -7,9 +7,16 @@ from rules import Rules
 class RiskProfile:
     """
     This is the class to receive a user's risk profile and calculate the risk score.
-    :param user: User object (user's risk profile)
-    exposed properties:
-        calculatedRiskProfile: Risk object (risk score)
+    ...
+    Attributes
+    ----------
+    user : UserModel
+        user's risk profile
+
+    Properties
+    ----------
+    calculatedRiskProfile : RiskModel
+        risk profile of the provided user
     """
 
     def __init__(self, user: UserModel) -> None:
