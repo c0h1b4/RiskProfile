@@ -1,4 +1,4 @@
-def process(value):
+def process(value: int) -> str:
     """
     This algorithm results in a final score for each line of insurance, 
     which should be processed using the following ranges:

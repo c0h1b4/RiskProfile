@@ -29,7 +29,7 @@ class TestRiskProfile(unittest.TestCase):
             "life": "regular"
         }
         risk_profile = RiskProfile(user)
-        self.assertEqual(output, risk_profile.get_risk_profile())
+        self.assertEqual(output, risk_profile.calculatedRiskProfile)
 
     def test_risk_profile_with_custom_data1(self):
         user = {
@@ -48,7 +48,7 @@ class TestRiskProfile(unittest.TestCase):
             "life": "responsible"
         }
         risk_profile = RiskProfile(user)
-        self.assertEqual(output, risk_profile.get_risk_profile())
+        self.assertEqual(output, risk_profile.calculatedRiskProfile)
 
     def test_risk_profile_with_custom_data2(self):
         user = {
@@ -67,4 +67,4 @@ class TestRiskProfile(unittest.TestCase):
             "life": "ineligible"
         }
         risk_profile = RiskProfile(user)
-        self.assertEqual(output, risk_profile.get_risk_profile())
+        self.assertEqual(output, risk_profile.calculatedRiskProfile)
